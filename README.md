@@ -36,7 +36,6 @@ To get a local copy up and running follow these steps.
    ```sh
    cd ms-message
    ```
-   ```
 3. Configure Twilio credentials (see [TWILIO_SETUP.md](TWILIO_SETUP.md))
 
 <!-- USAGE -->
