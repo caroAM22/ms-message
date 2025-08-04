@@ -34,7 +34,6 @@ twilio:
 curl -X POST http://localhost:8081/api/v1/notification/send \
   -H "Content-Type: application/json" \
   -d '{
-    "pin": "1234",
     "message": "Hello from your app!",
     "phoneNumber": "+1234567890"
   }'
