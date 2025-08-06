@@ -2,6 +2,7 @@ package com.pragma.plazoleta.domain.usecase;
 
 import com.pragma.plazoleta.domain.api.IMessageServicePort;
 import com.pragma.plazoleta.domain.model.MessageModel;
+import com.pragma.plazoleta.domain.spi.ITwilioServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +10,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MessageUseCase implements IMessageServicePort {
     
-    private final IMessageServicePort messageServicePort;
+    private final ITwilioServicePort twilioServicePort;
 
     @Override
-    public String sendNotification(MessageModel messageModel) {
-        return messageServicePort.sendNotification(messageModel);
+    public String sendMessage(MessageModel messageModel) {
+        return twilioServicePort.sendNotification(messageModel);
     }
 } 

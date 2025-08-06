@@ -2,6 +2,7 @@ package com.pragma.plazoleta.infrastructure.adapters.output;
 
 import com.pragma.plazoleta.domain.api.IMessageServicePort;
 import com.pragma.plazoleta.domain.model.MessageModel;
+import com.pragma.plazoleta.domain.spi.ITwilioServicePort;
 import com.pragma.plazoleta.infrastructure.exception.InfrastructureException;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class TwilioService implements IMessageServicePort {
+public class TwilioService implements ITwilioServicePort {
     
     @Value("${twilio.account.sid}")
     private String accountSid;
@@ -33,12 +34,10 @@ public class TwilioService implements IMessageServicePort {
                     new PhoneNumber(twilioPhoneNumber),
                     messageModel.getMessage())
                     .create();
-            
-            log.info("Message sent successfully. SID: {}", message.getSid());
+
             return "Message sent successfully with SID: " + message.getSid();
             
         } catch (Exception e) {
-            log.error("Error sending message: {}", e.getMessage());
             throw new InfrastructureException("Failed to send message: " + e.getMessage());
         }
     }

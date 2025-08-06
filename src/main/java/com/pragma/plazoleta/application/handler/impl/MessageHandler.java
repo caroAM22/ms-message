@@ -19,7 +19,7 @@ public class MessageHandler implements IMessageHandler {
 
     @Override
     public MessageResponseDto sendNotification(MessageRequestDto messageRequestDto) {
-        String result = messageServicePort.sendNotification(messageRequestMapper.toModel(messageRequestDto));
+        String result = messageServicePort.sendMessage(messageRequestMapper.toModel(messageRequestDto));
         
         MessageResponseDto response = new MessageResponseDto();
         response.setMessage(result);
