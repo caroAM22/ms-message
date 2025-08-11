@@ -1,8 +1,7 @@
 package com.pragma.plazoleta.infrastructure.adapters.output;
 
-import com.pragma.plazoleta.domain.api.IMessageServicePort;
 import com.pragma.plazoleta.domain.model.MessageModel;
-import com.pragma.plazoleta.domain.spi.ITwilioServicePort;
+import com.pragma.plazoleta.domain.spi.INotificationServicePort;
 import com.pragma.plazoleta.infrastructure.exception.InfrastructureException;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class TwilioService implements ITwilioServicePort {
+public class NotificationService implements INotificationServicePort {
     
     @Value("${twilio.account.sid}")
     private String accountSid;
